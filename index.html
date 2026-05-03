@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ashish Gharat | Developer Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#071012;
+  --panel:#0d1b1f;
+  --panel2:#10262b;
+  --text:#ecfeff;
+  --muted:#8aa6ac;
+  --line:rgba(255,255,255,.1);
+  --brand:#2dd4bf;
+  --brand2:#facc15;
+  --hot:#fb7185;
+  --shadow:0 22px 70px rgba(0,0,0,.28);
+  --head:'Space Grotesk',sans-serif;
+  --body:'Inter',sans-serif;
+}
+[data-theme="light"]{
+  --bg:#f6fbfb;
+  --panel:#ffffff;
+  --panel2:#e9f5f5;
+  --text:#0b171a;
+  --muted:#53676c;
+  --line:rgba(0,0,0,.1);
+  --shadow:0 18px 50px rgba(8,40,44,.12);
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--body);
+  background:
+    linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px),
+    var(--bg);
+  background-size:42px 42px;
+  color:var(--text);
+  overflow-x:hidden;
+}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+nav{
+  position:fixed;
+  top:18px;
+  left:50%;
+  transform:translateX(-50%);
+  width:min(1120px,92%);
+  z-index:99;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  background:rgba(13,27,31,.78);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:.75rem .9rem .75rem 1.1rem;
+  backdrop-filter:blur(18px);
+  box-shadow:var(--shadow);
+}
+[data-theme="light"] nav{background:rgba(255,255,255,.82)}
+.logo{font-family:var(--head);font-size:1.05rem;font-weight:700;letter-spacing:.04em}
+.logo span{color:var(--brand)}
+.nav-links{display:flex;list-style:none;gap:.45rem}
+.nav-links a{
+  display:block;
+  padding:.55rem .75rem;
+  border-radius:12px;
+  color:var(--muted);
+  font-size:.86rem;
+  font-weight:600;
+}
+.nav-links a:hover,.nav-links a.active-link{background:var(--panel2);color:var(--text)}
+.nav-actions{display:flex;align-items:center;gap:.55rem}
+.icon-btn,.primary-small{
+  border:1px solid var(--line);
+  background:var(--panel2);
+  color:var(--text);
+  border-radius:12px;
+  cursor:pointer;
+  font-family:var(--body);
+  font-weight:700;
+}
+.icon-btn{width:40px;height:40px}
+.primary-small{padding:.62rem .9rem;background:var(--brand);color:#031616;border-color:transparent}
+
+section{padding:6.5rem 5%}
+.wrap{max-width:1120px;margin:0 auto}
+.hero{
+  min-height:100vh;
+  display:grid;
+  place-items:center;
+  padding-top:8rem;
+}
+.hero-grid{
+  width:min(1120px,92%);
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:3rem;
+  align-items:center;
+}
+.kicker{
+  display:inline-flex;
+  align-items:center;
+  gap:.55rem;
+  color:var(--brand);
+  border:1px solid rgba(45,212,191,.25);
+  background:rgba(45,212,191,.08);
+  border-radius:999px;
+  padding:.4rem .8rem;
+  font-size:.82rem;
+  font-weight:700;
+  margin-bottom:1.2rem;
+}
+.dot{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 6px rgba(34,197,94,.12)}
+h1{
+  font-family:var(--head);
+  font-size:clamp(3.2rem,9vw,7.3rem);
+  line-height:.92;
+  letter-spacing:-.04em;
+  margin-bottom:1.1rem;
+}
+h1 .accent{color:var(--brand2)}
+.hero-text{
+  max-width:620px;
+  color:var(--muted);
+  font-size:1.04rem;
+  line-height:1.85;
+}
+.type-line{
+  min-height:2rem;
+  margin:1rem 0 1rem;
+  color:var(--text);
+  font-weight:800;
+  font-size:clamp(1rem,2vw,1.35rem);
+}
+.cursor{display:inline-block;width:2px;height:1em;background:var(--brand);margin-left:3px;vertical-align:-2px;animation:blink 1s infinite}
+@keyframes blink{50%{opacity:0}}
+.hero-buttons{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:2rem}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:.45rem;
+  min-height:46px;
+  padding:.75rem 1.15rem;
+  border-radius:14px;
+  border:1px solid var(--line);
+  font-weight:800;
+  font-size:.9rem;
+  cursor:pointer;
+  font-family:var(--body);
+}
+.btn-main{background:var(--brand);color:#031616;border-color:transparent}
+.btn-ghost{background:var(--panel);color:var(--text)}
+.photo-card{
+  position:relative;
+  padding:1rem;
+  border:1px solid var(--line);
+  border-radius:32px;
+  background:linear-gradient(145deg,var(--panel),var(--panel2));
+  box-shadow:var(--shadow);
+}
+.photo-frame{
+  aspect-ratio:1;
+  border-radius:50%;
+  overflow:hidden;
+  border:5px solid rgba(45,212,191,.7);
+  box-shadow:0 0 0 12px rgba(45,212,191,.08);
+}
+.photo-frame img{width:100%;height:100%;object-fit:cover}
+.mini-stack{
+  position:absolute;
+  left:-22px;
+  bottom:34px;
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:.8rem 1rem;
+  box-shadow:var(--shadow);
+}
+.mini-stack strong{display:block;color:var(--brand2);font-size:1.4rem}
+.mini-stack span{font-size:.78rem;color:var(--muted);font-weight:700}
+
+.section-head{margin-bottom:2.2rem}
+.label{color:var(--brand);font-size:.78rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase;margin-bottom:.45rem}
+h2{font-family:var(--head);font-size:clamp(2.1rem,5vw,4rem);letter-spacing:-.035em;line-height:1}
+.sub{color:var(--muted);max-width:680px;line-height:1.8;margin-top:.8rem}
+
+.metrics{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1rem;
+  margin-top:2rem;
+}
+.metric{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:1.3rem;
+}
+.metric strong{font-family:var(--head);font-size:2.6rem;color:var(--brand2)}
+.metric span{display:block;color:var(--muted);font-size:.86rem;font-weight:700}
+
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:2rem;
+}
+.panel{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:24px;
+  padding:1.5rem;
+  box-shadow:var(--shadow);
+}
+.panel p{color:var(--muted);line-height:1.85}
+.panel strong{color:var(--text)}
+.tags{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1.2rem}
+.tag{
+  padding:.42rem .72rem;
+  border-radius:999px;
+  background:var(--panel2);
+  border:1px solid var(--line);
+  color:var(--text);
+  font-size:.78rem;
+  font-weight:700;
+}
+.timeline{display:grid;gap:1rem}
+.t-item{
+  border-left:3px solid var(--brand);
+  padding:.15rem 0 .15rem 1rem;
+}
+.t-year{color:var(--brand2);font-weight:900;font-size:.82rem;margin-bottom:.2rem}
+.t-role{font-weight:900}
+.t-sub{color:var(--muted);font-size:.9rem;line-height:1.65;margin-top:.15rem}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
+.skill,.project,.cert{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:1.2rem;
+  transition:.25s;
+}
+.skill:hover,.project:hover,.cert:hover{transform:translateY(-4px);border-color:rgba(45,212,191,.42)}
+.skill h3,.project h3,.cert h3{font-family:var(--head);margin-bottom:.45rem}
+.skill p,.project p,.cert p{color:var(--muted);font-size:.9rem;line-height:1.7}
+.skill b,.project b,.cert b{color:var(--brand);font-size:.76rem;letter-spacing:.12em;text-transform:uppercase}
+.project-top{
+  height:130px;
+  border-radius:16px;
+  background:var(--panel2);
+  border:1px solid var(--line);
+  display:flex;
+  align-items:end;
+  padding:1rem;
+  margin-bottom:1rem;
+}
+.project-top span{
+  font-family:var(--head);
+  font-size:1.8rem;
+  font-weight:900;
+  color:var(--brand2);
+}
+.cert small{display:block;color:var(--brand2);font-weight:800;margin-top:.4rem}
+
+.contact-grid{
+  display:grid;
+  grid-template-columns:.85fr 1.15fr;
+  gap:1rem;
+}
+.contact-list{display:grid;gap:.8rem}
+.contact-item{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:1rem;
+}
+.contact-item span{display:block;color:var(--muted);font-size:.76rem;font-weight:800;text-transform:uppercase;letter-spacing:.13em}
+.contact-item b{display:block;margin-top:.2rem;word-break:break-word}
+form{display:grid;gap:.85rem}
+input,textarea{
+  width:100%;
+  background:var(--panel);
+  border:1px solid var(--line);
+  color:var(--text);
+  border-radius:16px;
+  padding:.9rem 1rem;
+  font-family:var(--body);
+  outline:none;
+}
+input:focus,textarea:focus{border-color:var(--brand)}
+.socials{display:flex;gap:.7rem;margin-top:1rem}
+.socials a{
+  display:grid;
+  place-items:center;
+  width:44px;
+  height:44px;
+  border-radius:14px;
+  border:1px solid var(--line);
+  background:var(--panel);
+  color:var(--text);
+  font-weight:900;
+}
+footer{
+  border-top:1px solid var(--line);
+  color:var(--muted);
+  padding:1.5rem 5%;
+  text-align:center;
+  font-size:.86rem;
+}
+.reveal{opacity:0;transform:translateY(22px);transition:.6s}
+.reveal.show{opacity:1;transform:translateY(0)}
+
+@media(max-width:900px){
+  nav{top:10px}
+  .nav-links{display:none}
+  .hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr}
+  .hero{padding-top:7.5rem}
+  .photo-card{max-width:390px;margin:auto}
+  .mini-stack{left:10px;bottom:20px}
+  .metrics{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#home" class="logo"><span>AG</span> / Ashish Gharat</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#certificates">Certificates</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="icon-btn" id="themeBtn" aria-label="Toggle theme">D</button>
+    <a class="primary-small" href="#contact">Contact</a>
+  </div>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-grid">
+    <div>
+      <div class="kicker"><span class="dot"></span> Available for opportunities</div>
+      <h1>Ashish<br><span class="accent">Gharat</span></h1>
+      <div class="type-line"><span id="tw"></span><span class="cursor"></span></div>
+      <p class="hero-text">
+        B.Tech Computer Engineering student at MITAOE, Pune. I build web projects, explore AI/ML,
+        create digital content, edit videos, and keep improving through real projects.
+      </p>
+      <div class="hero-buttons">
+        <a href="#projects" class="btn btn-main">View Projects</a>
+        <a href="mailto:202501080144@mitaoe.ac.in" class="btn btn-ghost">Email Me</a>
+        <a href="#certificates" class="btn btn-ghost">Certificates</a>
+      </div>
+      <div class="metrics">
+        <div class="metric"><strong>6+</strong><span>Projects Built</span></div>
+        <div class="metric"><strong>15+</strong><span>Certifications</span></div>
+        <div class="metric"><strong>50+</strong><span>AI Tools Used</span></div>
+      </div>
+    </div>
+
+    <div class="photo-card reveal">
+      <div class="photo-frame">
+        <img src="C:/Users/ashis_9tmk1c9/Downloads/WhatsApp Image 2026-05-03 at 3.28.40 PM.jpeg" alt="Ashish Gharat" />
+      </div>
+      <div class="mini-stack">
+        <strong>AI/ML</strong>
+        <span>Future specialisation</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="label">Who I Am</div>
+      <h2>About Me</h2>
+      <p class="sub">A curious engineering student with interests across development, AI, content, design, marketing, and chess.</p>
+    </div>
+
+    <div class="about-grid">
+      <div class="panel reveal">
+        <p>
+          I am a <strong>B.Tech Computer Engineering student at MITAOE, Pune</strong> from the 2025-2029 batch.
+          I enjoy building useful websites, learning AI/ML, making creative digital content, and experimenting
+          with new AI tools. I have also led a college tech fest and enjoy working on ideas from scratch.
+        </p>
+        <div class="tags">
+          <span class="tag">Web Development</span>
+          <span class="tag">AI / ML</span>
+          <span class="tag">Video Editing</span>
+          <span class="tag">Digital Marketing</span>
+          <span class="tag">Canva Design</span>
+          <span class="tag">AI Content Creation</span>
+          <span class="tag">Chess</span>
+          <span class="tag">Script Writing</span>
+        </div>
+      </div>
+
+      <div class="panel timeline reveal">
+        <div class="t-item">
+          <div class="t-year">2025 - Present</div>
+          <div class="t-role">B.Tech - Computer Engineering</div>
+          <div class="t-sub">MITAOE, Pune. Led college tech fest and moving towards AI/ML specialisation.</div>
+        </div>
+        <div class="t-item">
+          <div class="t-year">2023 - 2025</div>
+          <div class="t-role">HSC - Science PCM</div>
+          <div class="t-sub">Rajarshi Shahu Mahavidyalay, Latur.</div>
+        </div>
+        <div class="t-item">
+          <div class="t-year">Nursery - 2023</div>
+          <div class="t-role">Schooling</div>
+          <div class="t-sub">Gurukul English School, Beed.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="label">What I Know</div>
+      <h2>Skills</h2>
+    </div>
+    <div class="grid">
+      <div class="skill reveal"><b>Frontend</b><h3>Web Interfaces</h3><p>HTML5, CSS3, JavaScript, responsive layouts, and React basics.</p></div>
+      <div class="skill reveal"><b>AI / ML</b><h3>AI Tools</h3><p>Python basics, prompt engineering, AI image tools, AI video tools, and workflow automation.</p></div>
+      <div class="skill reveal"><b>Creative</b><h3>Content Creation</h3><p>Video editing, Canva design, thumbnails, scripting, and social content planning.</p></div>
+      <div class="skill reveal"><b>Marketing</b><h3>Digital Growth</h3><p>Content strategy, SEO basics, social media, and AI-assisted digital marketing.</p></div>
+      <div class="skill reveal"><b>Tools</b><h3>Developer Stack</h3><p>Git, GitHub, VS Code, Figma, Linux basics, and productivity tools.</p></div>
+      <div class="skill reveal"><b>Extra</b><h3>Leadership</h3><p>Chess mindset, tech fest leadership, quick learning, and project ownership.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="label">What I Have Built</div>
+      <h2>Projects</h2>
+    </div>
+
+    <div class="grid">
+      <div class="project reveal">
+        <div class="project-top"><span>Portfolio</span></div>
+        <b>HTML / CSS / JS</b>
+        <h3>Personal Portfolio Website</h3>
+        <p>A responsive portfolio with theme switching, reveal animations, project cards, and contact section.</p>
+      </div>
+
+      <div class="project reveal">
+        <div class="project-top"><span>Chatbot</span></div>
+        <b>AI / JavaScript</b>
+        <h3>AI Chatbot</h3>
+        <p>A chatbot project concept for answering user questions, generating helpful responses, and supporting creator workflows.</p>
+      </div>
+
+      <div class="project reveal">
+        <div class="project-top"><span>AI Content</span></div>
+        <b>Python / AI APIs</b>
+        <h3>AI Content Generator</h3>
+        <p>A tool idea for generating scripts, captions, and social media content using AI prompts and APIs.</p>
+      </div>
+
+      <div class="project reveal">
+        <div class="project-top"><span>Design</span></div>
+        <b>Canva / Figma</b>
+        <h3>Thumbnail Design Pack</h3>
+        <p>Social media and YouTube thumbnail designs created with Canva, Figma, and AI image generation.</p>
+      </div>
+
+      <div class="project reveal">
+        <div class="project-top"><span>Weather</span></div>
+        <b>JavaScript / API</b>
+        <h3>Weather Dashboard</h3>
+        <p>A weather dashboard concept with city search, forecasts, and dynamic condition-based visuals.</p>
+      </div>
+
+      <div class="project reveal">
+        <div class="project-top"><span>Tasks</span></div>
+        <b>React / Node</b>
+        <h3>Task Manager App</h3>
+        <p>A full-stack task manager concept with authentication, task updates, and a clean dashboard UI.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="certificates">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="label">Achievements</div>
+      <h2>Certificates</h2>
+      <p class="sub">A growing collection of programming, AI, digital, and data certificates.</p>
+    </div>
+
+    <div class="grid">
+      <div class="cert reveal"><b>Cisco</b><h3>Python Essentials 1</h3><p>Programming fundamentals with Python.</p><small>2024</small></div>
+      <div class="cert reveal"><b>Cisco</b><h3>Python Essentials 2</h3><p>Intermediate Python concepts and problem solving.</p><small>2024</small></div>
+      <div class="cert reveal"><b>Anthropic</b><h3>Claude 101</h3><p>Foundations of using Claude effectively.</p><small>2025</small></div>
+      <div class="cert reveal"><b>Anthropic</b><h3>AI Fluency Framework</h3><p>Core AI fluency concepts and responsible usage.</p><small>2025</small></div>
+      <div class="cert reveal"><b>Anthropic</b><h3>Foundation AI Fluency for Students</h3><p>AI skills and learning workflows for students.</p><small>2025</small></div>
+      <div class="cert reveal"><b>Anthropic</b><h3>AI Fluency for Nonprofits</h3><p>Using AI for nonprofit workflows and productivity.</p><small>2025</small></div>
+      <div class="cert reveal"><b>IBM</b><h3>Importance of Data Visualization</h3><p>Understanding the value of visual data communication.</p><small>2025</small></div>
+      <div class="cert reveal"><b>Coursera / NPTEL</b><h3>Web Development Fundamentals</h3><p>HTML, CSS, and web basics.</p><small>2024</small></div>
+      <div class="cert reveal"><b>Coursera / Google</b><h3>Python Programming</h3><p>Basic Python programming certificate.</p><small>2024</small></div>
+      <div class="cert reveal"><b>Google / MITAOE</b><h3>Introduction to AI & ML</h3><p>AI and machine learning fundamentals.</p><small>2025</small></div>
+      <div class="cert reveal"><b>Google Digital Garage</b><h3>Digital Marketing Essentials</h3><p>Marketing fundamentals for digital platforms.</p><small>2024</small></div>
+      <div class="cert reveal"><b>Canva</b><h3>Canva Design Certification</h3><p>Design basics and visual content creation.</p><small>2024</small></div>
+      <div class="cert reveal"><b>HackerRank</b><h3>SQL & Database Basics</h3><p>Database and SQL fundamentals.</p><small>2024</small></div>
+      <div class="cert reveal"><b>Udemy / YouTube</b><h3>Video Editing & Production</h3><p>Editing, production, and video workflow basics.</p><small>2024</small></div>
+      <div class="cert reveal"><b>Projects</b><h3>Content Creation with AI</h3><p>Practical learning through AI-assisted content projects.</p><small>2025</small></div>
+    </div>
+  </div>
+</section>
+
+<section id="resume">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="label">Resume Snapshot</div>
+      <h2>Current Profile</h2>
+      <p class="sub">
+        B.Tech Computer Engineering student at MITAOE, Pune, focused on web development, AI/ML,
+        digital content creation, video editing, and practical project building.
+      </p>
+    </div>
+    <div class="metrics">
+      <div class="metric"><strong>6+</strong><span>Projects Built</span></div>
+      <div class="metric"><strong>15+</strong><span>Certifications</span></div>
+      <div class="metric"><strong>50+</strong><span>AI Tools Used</span></div>
+    </div>
+    <div class="hero-buttons" style="margin-top:2rem">
+      <button class="btn btn-main" onclick="window.print()">Print Resume</button>
+      <a class="btn btn-ghost" href="mailto:202501080144@mitaoe.ac.in">Request CV</a>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="label">Get In Touch</div>
+      <h2>Contact</h2>
+    </div>
+
+    <div class="contact-grid">
+      <div>
+        <div class="contact-list">
+          <div class="contact-item"><span>Email</span><b>202501080144@mitaoe.ac.in</b></div>
+          <div class="contact-item"><span>Phone</span><b>+91 93700 79919</b></div>
+          <div class="contact-item"><span>Location</span><b>Pune, Maharashtra, India</b></div>
+          <div class="contact-item"><span>College</span><b>MITAOE, Pune - B.Tech CSE 2025-2029</b></div>
+        </div>
+
+        <div class="socials">
+          <a href="https://github.com/ashishgharat377" target="_blank" rel="noopener" title="GitHub">GH</a>
+          <a href="#" onclick="return false" title="LinkedIn">IN</a>
+          <a href="https://www.instagram.com/ashish._.34.7?igsh=c2ticGk5Y3hhYTRn" target="_blank" rel="noopener" title="Instagram">IG</a>
+        </div>
+      </div>
+
+      <form onsubmit="sendMail(event)">
+        <input id="name" type="text" placeholder="Your name" required />
+        <input id="email" type="email" placeholder="Your email" required />
+        <textarea id="message" rows="6" placeholder="Tell me about your project or opportunity..." required></textarea>
+        <button class="btn btn-main" type="submit">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Ashish Gharat © 2026 | Built in Pune, Maharashtra
+</footer>
+
+<script>
+const phrases=[
+  "Computer Engineering Student",
+  "AI/ML Enthusiast",
+  "Web Developer",
+  "Video Editor & Creator",
+  "Digital Marketing Learner",
+  "Chess Player"
+];
+
+let pi=0,ci=0,del=false;
+function type(){
+  const el=document.getElementById("tw");
+  const current=phrases[pi];
+  el.textContent=del ? current.substring(0,--ci) : current.substring(0,++ci);
+
+  if(!del && ci===current.length){
+    del=true;
+    setTimeout(type,1400);
+    return;
+  }
+
+  if(del && ci===0){
+    del=false;
+    pi=(pi+1)%phrases.length;
+  }
+
+  setTimeout(type,del?35:70);
+}
+type();
+
+const themeBtn=document.getElementById("themeBtn");
+themeBtn.addEventListener("click",()=>{
+  const root=document.documentElement;
+  const next=root.getAttribute("data-theme")==="dark" ? "light" : "dark";
+  root.setAttribute("data-theme",next);
+  themeBtn.textContent=next==="dark" ? "D" : "L";
+});
+
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting) entry.target.classList.add("show");
+  });
+},{threshold:.14});
+
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+
+window.addEventListener("scroll",()=>{
+  let current="";
+  document.querySelectorAll("section[id]").forEach(section=>{
+    if(scrollY>=section.offsetTop-130) current=section.id;
+  });
+
+  document.querySelectorAll(".nav-links a").forEach(link=>{
+    link.classList.toggle("active-link",link.getAttribute("href")==="#"+current);
+  });
+});
+
+function sendMail(e){
+  e.preventDefault();
+  const name=document.getElementById("name").value.trim();
+  const email=document.getElementById("email").value.trim();
+  const msg=document.getElementById("message").value.trim();
+  const subject=encodeURIComponent("Portfolio contact from "+name);
+  const body=encodeURIComponent("Name: "+name+"\nEmail: "+email+"\n\nMessage:\n"+msg);
+  window.location.href="mailto:202501080144@mitaoe.ac.in?subject="+subject+"&body="+body;
+}
+</script>
+</body>
+</html>
