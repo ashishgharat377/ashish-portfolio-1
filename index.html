@@ -1,114 +1,85 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Ashish Gharat | Developer Portfolio</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --bg:#071012;
-  --panel:#0d1b1f;
-  --panel2:#10262b;
-  --text:#ecfeff;
-  --muted:#8aa6ac;
-  --line:rgba(255,255,255,.1);
-  --brand:#2dd4bf;
-  --brand2:#facc15;
-  --shadow:0 22px 70px rgba(0,0,0,.28);
-}
-[data-theme="light"]{
-  --bg:#f6fbfb;
-  --panel:#ffffff;
-  --panel2:#e9f5f5;
-  --text:#0b171a;
-  --muted:#53676c;
-}
-body{
-  font-family:'Inter',sans-serif;
-  background:var(--bg);
-  color:var(--text);
-}
-nav{
-  position:fixed;
-  top:15px;
-  left:50%;
-  transform:translateX(-50%);
-  width:90%;
-  display:flex;
-  justify-content:space-between;
-  background:var(--panel);
-  padding:10px 20px;
-  border-radius:15px;
-}
-.logo span{color:var(--brand)}
-.hero{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-.hero-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:40px;
-  width:90%;
-}
-h1{font-size:60px}
-.accent{color:var(--brand2)}
-.hero-text{color:var(--muted)}
-
-.photo-card{
-  padding:20px;
-  border-radius:30px;
-  background:var(--panel);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-}
-.photo-frame{
-  width:300px;
-  height:300px;
-  border-radius:50%;
-  overflow:hidden;
-  border:5px solid var(--brand);
-}
-.photo-frame img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ashish Gharat | Developer Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-
-<nav>
-  <div class="logo"><span>AG</span> Ashish Gharat</div>
-</nav>
-
-<section class="hero">
-  <div class="hero-grid">
-
-    <div>
-      <h1>Ashish <span class="accent">Gharat</span></h1>
-      <p class="hero-text">
-        B.Tech Computer Engineering student. Web developer, AI/ML enthusiast, and content creator.
-      </p>
+  <nav>
+    <a href="index.html" class="logo"><span>AG</span> / Ashish Gharat</a>
+    <ul class="nav-links">
+      <li><a class="active-link" href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="icon-btn" id="themeBtn" aria-label="Toggle theme">D</button>
+      <a class="primary-small" href="contact.html">Contact</a>
     </div>
+  </nav>
 
-    <!-- ✅ IMAGE SECTION FIXED -->
-    <div class="photo-card">
-      <div class="photo-frame">
-        <img src="profile.jpg" alt="Ashish Gharat">
+  <main class="hero" id="home">
+    <div class="hero-grid">
+      <div>
+        <div class="kicker"><span class="dot"></span> Available for opportunities</div>
+        <h1>Ashish<br><span class="accent">Gharat</span></h1>
+        <div class="type-line"><span id="tw"></span><span class="cursor"></span></div>
+        <p class="hero-text">
+          B.Tech Computer Engineering student at MITAOE, Pune. I build web projects, explore AI/ML,
+          create digital content, edit videos, and keep improving through real projects.
+        </p>
+        <div class="hero-buttons">
+          <a href="projects.html" class="btn btn-main">View Projects</a>
+          <a href="mailto:202501080144@mitaoe.ac.in" class="btn btn-ghost">Email Me</a>
+          <a href="about.html#certificates" class="btn btn-ghost">Certificates</a>
+        </div>
+        <div class="metrics">
+          <div class="metric"><strong>6+</strong><span>Projects Built</span></div>
+          <div class="metric"><strong>15+</strong><span>Certifications</span></div>
+          <div class="metric"><strong>50+</strong><span>AI Tools Used</span></div>
+        </div>
+      </div>
+
+      <div class="photo-card reveal">
+        <div class="photo-frame">
+          <img src="profile.jpg" alt="Ashish Gharat" />
+        </div>
+        <div class="mini-stack">
+          <strong>AI/ML</strong>
+          <span>Future specialisation</span>
+        </div>
       </div>
     </div>
+  </main>
 
-  </div>
-</section>
+  <footer>Ashish Gharat © 2026 | Built in Pune, Maharashtra</footer>
 
+  <script>
+    const phrases=[
+      "Computer Engineering Student",
+      "AI/ML Enthusiast",
+      "Web Developer",
+      "Video Editor & Creator",
+      "Digital Marketing Learner",
+      "Chess Player"
+    ];
+
+    let pi=0,ci=0,del=false;
+    function type(){
+      const el=document.getElementById("tw");
+      if(!el) return;
+      const current=phrases[pi];
+      el.textContent=del ? current.substring(0,--ci) : current.substring(0,++ci);
+      if(!del && ci===current.length){del=true;setTimeout(type,1400);return}
+      if(del && ci===0){del=false;pi=(pi+1)%phrases.length}
+      setTimeout(type,del?35:70);
+    }
+    type();
+  </script>
+  <script src="script.js"></script>
 </body>
 </html>
